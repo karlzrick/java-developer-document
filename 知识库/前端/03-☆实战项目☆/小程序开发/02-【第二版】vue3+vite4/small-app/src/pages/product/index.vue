@@ -1,6 +1,6 @@
 <template>
-  <base-wraper :active="1" class="app">
-    <view v-if="reSpuList.length > 0" class="h100 flex overflow-y-scroll">
+  <base-wraper activeTabName="product" class="app">
+    <view v-if="reSpuList.length > 0" class="h-full flex overflow-y-scroll">
       <scroll-view
         class="category bg-color-lightgrey text-color-grey p-r-10"
         scroll-with-animation
@@ -44,26 +44,20 @@
                 v-for="(spuItem, index) in item.spuList"
                 :key="index"
                 @tap="showSpuDetailModal(item, spuItem)">
-                <view class="left">
-                  <image class="img-base" :src="spuItem.coverImg" />
-                </view>
-                <view class="h100 flex-1 flex-c-between-start text-overflow-1 p-10">
-                  <text class="font-size-lg m-b-10">{{ spuItem.name }}</text>
+                <image class="img-base" :src="spuItem.coverImg" />
+                <view class="flex-1 flex-c-between-start h-full p-10">
+                  <text class="font-size-lg text-overflow-1">{{ spuItem.name }}</text>
+
                   <text class="font-size-base text-color-grey">
                     库存：{{ spuItem.usableStockSum }}
                   </text>
-                  <view class="w100 flex-between-center">
+                  <view class="w-full flex-between-center">
                     <text class="font-size-base font-bold">
                       ￥{{ spuItem.skuList[0].sellPrice / 100 }}
                     </text>
                     <view class="flex-between-center position-relative">
                       <u-icon name="plus" />
-                      <!-- <up-badge
-                                                :value="getSkuNum(spuItem)"
-                                                max="99"
-                                                :inverted="true"
-                                                :offset="[-15, -10]"
-                                                :absolute="true" /> -->
+                      <!-- <up-badge :value="getSkuNum(spuItem)" max="99" :inverted="true" :offset="[-15, -10]" :absolute="true" /> -->
                     </view>
                   </view>
                 </view>
@@ -74,7 +68,7 @@
       </scroll-view>
     </view>
 
-    <view v-else class="h100 content-center bg-color-white">
+    <view v-else class="h-full flex-center-center bg-color-white">
       <u-empty mode="data" text="商品为空" />
     </view>
 

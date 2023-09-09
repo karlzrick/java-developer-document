@@ -1,7 +1,8 @@
 <template>
-  <base-wraper :active="2">
+  <base-wraper activeTabName="order">
     <base-scroll
-      class="h100 overflow-y-scroll bg-color-lightgrey"
+      class="h-full overflow-y-scroll bg-color-lightgrey"
+      :isPage="true"
       api="order.page"
       :params="{
         tabValue: -1,
@@ -12,7 +13,7 @@
       </template>
       <template #default="{ list }">
         <view
-          class="bg-color-white m-20 m-y-20 p-20 border-radius-30 font-size-base"
+          class="bg-color-white m-20 m-y-20 p-20 b-rd-30 font-size-base"
           v-for="(orderItem, index) in list"
           :key="index"
           @click="goDetail(orderItem.orderNo)">

@@ -6,6 +6,7 @@
 }
 
 // ********************************************
+
 .overflow-x-scroll {
   overflow-x: scroll; // 水平方向超出滚动
 }
@@ -24,6 +25,13 @@
   font-weight: bold;
 }
 
+@each $key, $val in ('sm': 24rpx, 'base': 28rpx, 'lg': 32rpx) {
+  // font-size-base
+  .font-size-#{$key} {
+    font-size: $val !important;
+  }
+}
+
 // 边框颜色 ********************************************
 // 类名  .border-b
 // $orientation: (
@@ -34,7 +42,7 @@
 // );
 // @each $orientationKey, $orientationVal in $orientation {
 //   .border-#{$orientationKey} {
-//     border-#{$orientationVal}: 1px solid #e4e4ee;
+//     border-#{$orientationVal}: 1rpx solid #e4e4ee;
 //   }
 // }
 
@@ -45,7 +53,7 @@
   @if ($i % 2 == 0) {
     // b-rd-6
     .b-rd-#{$i} {
-      border-radius: #{$i}px;
+      border-radius: #{$i}rpx;
     }
   }
 }
@@ -59,12 +67,12 @@
 
 // 宽高
 @for $i from 0 through 500 {
-  @each $key, $val in w width, h height, lh line-height {
+  @each $key, $val in w width, h height, max-height max-height, line-height line-height {
     // 如果能够被 10 整除，将应用以下样式
     @if ($i % 10 == 0) {
-      // w-20 || lh-100
+      // w-20 || max-height-500 || line-height-100
       .#{$key}-#{$i} {
-        #{$val}: 1px * $i;
+        #{$val}: 1rpx * $i;
       }
     }
   }
