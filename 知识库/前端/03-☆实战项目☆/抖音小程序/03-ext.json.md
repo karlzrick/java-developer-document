@@ -1,4 +1,4 @@
-# ext.json
+# 代开发小程序 -- ext.json 定制化开发
 
 > https://partner.open-douyin.com/docs/resource/zh-CN/thirdparty/overview-guide/smallprogram/DevelopingCode
 
@@ -13,7 +13,7 @@
 {
   "extEnable": true,
   "extAppid": "xxx",
-  "directCommit": true,
+  "directCommit": false,
   "extPages": {
     "pages/index/index": {
       "navigationBarTitleText": "自定义首页"
