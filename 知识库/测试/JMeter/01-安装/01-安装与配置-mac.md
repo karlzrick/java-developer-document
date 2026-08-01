@@ -63,3 +63,26 @@ jmeter
 
 ![](images/jmeter-sh-2.png)
 
+### 三、Apple Silicon + JDK8 启动报错
+
+```text
+Error: VM option 'UseG1GC' is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.
+Error: Could not create the Java Virtual Machine.
+```
+
+原因：JMeter 默认启用 G1GC，而 Oracle JDK8 arm64 需要先解锁实验功能。执行以下命令创建配置：
+
+```shell
+cat > /zhengqingya/soft/soft-dev/apache-jmeter-5.4.3/bin/setenv.sh <<'EOF'
+#!/bin/sh
+
+# Apple Silicon 的 Oracle JDK8 需先解锁实验功能，再启用 G1GC。
+export GC_ALGO="-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1ReservePercent=20"
+EOF
+```
+
+然后重新启动：
+
+```shell
+jmeter
+```
