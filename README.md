@@ -11,6 +11,7 @@
 
 概览
 
+- [AI Agent](./知识库/AI-Agent)
 - [Git](./知识库/Git)
 - [Go](./知识库/Go)
 - [Java](./知识库/Java)
@@ -21,6 +22,7 @@
     - [Groovy](./知识库/Java/01-环境/04-Groovy)
     - [IDEA](./知识库/Java/01-环境/05-IDEA)
     - [maven-mvnd](./知识库/Java/01-环境/06-maven-mvnd)
+    - [mise](./知识库/Java/01-环境/07-mise)
   - [基础](./知识库/Java/02-基础)
     - [基础语法](./知识库/Java/02-基础/01-基础语法)
     - [判断语句](./知识库/Java/02-基础/02-判断语句)
